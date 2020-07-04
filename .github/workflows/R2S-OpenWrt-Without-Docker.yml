@@ -8,6 +8,8 @@ on:
     - cron: 5 9 * * *
 #  watch:
 #    types: [started]
+  paths:
+    - 'SWITCH'
 
 jobs:
   build:
