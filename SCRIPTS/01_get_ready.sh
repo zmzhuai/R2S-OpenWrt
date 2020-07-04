@@ -9,6 +9,7 @@ CONFIG_CGROUP_HUGETLB=y
 CONFIG_CGROUP_NET_PRIO=y
 CONFIG_EXT4_FS_SECURITY=y
 CONFIG_IPVLAN=y
+CONFIG_IPVTAP=m
 CONFIG_DM_THIN_PROVISIONING=y
 ' >> ./target/linux/rockchip/armv8/config-5.4
 #patch config-5.4 to reduce waiting:
