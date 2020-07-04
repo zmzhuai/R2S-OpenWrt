@@ -1,5 +1,8 @@
 ## R2S 基于原生OpenWRT 的固件(AS IS, NO WARRANTY!!!)
 
+### 下载地址：
+https://github.com/project-openwrt/R2S-OpenWrt/releases
+
 ### 追新党可以在Action中取每日更新（可能会翻车，风险自担，需要登陆github后才能下载）：
 https://github.com/project-openwrt/R2S-OpenWrt/actions
 
