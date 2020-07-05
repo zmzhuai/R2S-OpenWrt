@@ -28,6 +28,8 @@ git clone https://github.com/project-openwrt/R2S-OpenWrt.git&&cd R2S-OpenWrt&&ba
 
 5.固件分为docker版和无docker版本，docker版支持部分无线网卡和docker-ce，但由于docker的依赖问题，ssrp之类的软件存在udp转发异常的故障；无docker使用需求的，推荐使用无docker版固件
 
+6.刷写或升级后遇到任何问题，可以尝试ssh进路由器，输入fuck，回车后等待重启，或可解决
+
 ### 版本信息：
 其他模块版本：SNAPSHOT（当日最新）
 
