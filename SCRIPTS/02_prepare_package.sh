@@ -170,6 +170,9 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/shortcut-fe packa
 cp -f ../PATCH/shortcut-fe package/base-files/files/etc/init.d/shortcut-fe
 
 ##最后的收尾工作
+#Lets Fuck
+mkdir package/base-files/files/usr/bin
+cp -f ../PATCH/fuck package/base-files/files/usr/bin/fuck
 #最大连接
 sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 #修正架构
