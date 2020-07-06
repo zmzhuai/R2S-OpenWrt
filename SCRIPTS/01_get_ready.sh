@@ -11,6 +11,7 @@ CONFIG_EXT4_FS_SECURITY=y
 CONFIG_IPVLAN=y
 CONFIG_IPVTAP=m
 CONFIG_DM_THIN_PROVISIONING=y
+# CONFIG_DM_DEBUG_BLOCK_MANAGER_LOCKING is not set
 ' >> ./target/linux/rockchip/armv8/config-5.4
 #patch config-5.4 to reduce waiting:
 echo '
@@ -41,7 +42,6 @@ CONFIG_SND_SOC_ROCKCHIP=m
 CONFIG_SND_SOC_ROCKCHIP_I2S=m
 CONFIG_SND_SOC_ROCKCHIP_PDM=m
 CONFIG_SND_SOC_ROCKCHIP_SPDIF=m
-# CONFIG_DM_DEBUG_BLOCK_MANAGER_LOCKING is not set
 ' >> ./target/linux/rockchip/armv8/config-5.4
 cd ..
 exit 0
