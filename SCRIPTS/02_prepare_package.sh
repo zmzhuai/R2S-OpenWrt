@@ -122,7 +122,7 @@ svn co https://github.com/project-openwrt/openwrt/trunk/package/lean/tcpping pac
 svn co https://github.com/project-openwrt/openwrt/branches/master/package/ctcgfw/subconverter package/new/subconverter
 svn co https://github.com/project-openwrt/openwrt/branches/master/package/ctcgfw/jpcre2 package/new/jpcre2
 svn co https://github.com/project-openwrt/openwrt/branches/master/package/ctcgfw/rapidjson package/new/rapidjson
-#svn co https://github.com/project-openwrt/openwrt/branches/master/package/ctcgfw/duktape package/ctcgfw/duktape
+svn co https://github.com/project-openwrt/openwrt/branches/master/package/ctcgfw/duktape package/ctcgfw/duktape
 #清理内存
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ramfree package/lean/luci-app-ramfree
 #打印机
