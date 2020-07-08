@@ -170,6 +170,8 @@ git clone -b master --single-branch https://github.com/QiuSimons/addition-trans-
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/shortcut-fe package/new/shortcut-fe
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/fast-classifier package/new/fast-classifier
 #cp -f ../PATCH/shortcut-fe package/base-files/files/etc/init.d/shortcut-fe
+#IPSEC
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ipsec-vpnd package/lean/luci-app-ipsec-vpnd
 
 ##最后的收尾工作
 #Lets Fuck
