@@ -58,6 +58,8 @@ svn co https://github.com/openwrt/packages/trunk/devel/gcc feeds/packages/devel/
 git clone https://github.com/NateLol/luci-app-beardropper package/luci-app-beardropper
 sed -i 's/"luci.fs"/"luci.sys".net/g' package/luci-app-beardropper/luasrc/model/cbi/beardropper/setting.lua
 sed -i '/firewall/d' package/luci-app-beardropper/root/etc/uci-defaults/luci-beardropper
+#luci-app-freq
+svn co https://github.com/project-openwrt/openwrt/branches/master/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
 #京东签到
 git clone https://github.com/jerrykuku/node-request package/new/node-request
 git clone https://github.com/jerrykuku/luci-app-jd-dailybonus package/new/luci-app-jd-dailybonus
@@ -70,11 +72,6 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/adbyby package/le
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-accesscontrol package/lean/luci-app-accesscontrol
 #AutoCore
 svn co https://github.com/project-openwrt/openwrt/branches/master/package/lean/autocore package/lean/autocore
-sed -i "s,@TARGET_x86 ,,g" package/lean/autocore/Makefile
-rm -rf ./package/lean/autocore/files/cpuinfo
-wget -P package/lean/autocore/files https://raw.githubusercontent.com/QiuSimons/Others/master/cpuinfo
-rm -rf ./package/lean/autocore/files/rpcd_10_system.js
-wget -P package/lean/autocore/files https://raw.githubusercontent.com/QiuSimons/Others/master/rpcd_10_system.js
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/coremark package/lean/coremark
 sed -i 's,-DMULTIT,-Ofast -DMULTIT,g' package/lean/coremark/Makefile
 #迅雷快鸟
