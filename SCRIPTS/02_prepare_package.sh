@@ -102,6 +102,8 @@ git clone -b master --single-branch https://github.com/pexcn/openwrt-chinadns-ng
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/lean/luci-app-ssr-plus
 rm -rf ./package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/ssrurl.htm
 wget -P package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr https://raw.githubusercontent.com/QiuSimons/Others/master/luci-app-ssr-plus/luasrc/view/shadowsocksr/ssrurl.htm
+#turn off network sniffing
+sed -i "s/enabled = true/enabled = false/g" package/lean/luci-app-ssr-plus/root/usr/share/shadowsocksr/genv2config.lua
 #rm -rf ./package/lean/luci-app-ssr-plus/root/etc/init.d/shadowsocksr
 #wget -P package/lean/luci-app-ssr-plus/root/etc/init.d https://raw.githubusercontent.com/QiuSimons/Others/master/luci-app-ssr-plus-177-1/root/etc/init.d/shadowsocksr
 #SSRP依赖
@@ -196,6 +198,8 @@ cp -f ../PATCH/adjust_network package/base-files/files/etc/init.d/zzz_adjust_net
 #i2c_oled
 #cp -f ../I2C/i2c_ssd package/base-files/files/usr/bin/i2c_ssd
 #cp -f ../I2C/OLED_R2S package/base-files/files/etc/init.d/OLED_R2S
+#modify gateway address
+sed -i 's/192.168.1.1/192.168.88.1/g' package/base-files/files/bin/config_generate
 #删除已有配置
 rm -rf .config
 #授予权限
