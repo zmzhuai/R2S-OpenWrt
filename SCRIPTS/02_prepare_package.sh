@@ -190,12 +190,12 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/fast-classifier p
 #cp -f ../PATCH/shortcut-fe package/base-files/files/etc/init.d/shortcut-fe
 #IPSEC
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ipsec-vpnd package/lean/luci-app-ipsec-vpnd
+# use old version miniupnpd
+# rm -rf ./feeds/packages/net/miniupnpd
+# tar zxf ../miniupnpd.tar.gz -C ./feeds/packages/net/
 #回滚zstd
 rm -rf ./feeds/packages/utils/zstd
 svn co https://github.com/QiuSimons/Others/trunk/zstd feeds/packages/utils/zstd
-# use old version miniupnpd
-rm -rf ./feeds/packages/net/miniupnpd
-tar zxf ../miniupnpd.tar.gz -C ./feeds/packages/net/
 
 ##最后的收尾工作
 #Lets Fuck
