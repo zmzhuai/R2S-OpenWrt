@@ -192,7 +192,7 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/fast-classifier p
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ipsec-vpnd package/lean/luci-app-ipsec-vpnd
 #回滚zstd
 rm -rf ./feeds/packages/utils/zstd
-svn co https://github.com/QiuSimons/Others/tree/master/zstd feeds/packages/utils/zstd
+svn co https://github.com/QiuSimons/Others/trunk/zstd feeds/packages/utils/zstd
 # use old version miniupnpd
 rm -rf ./feeds/packages/net/miniupnpd
 tar zxf ../miniupnpd.tar.gz -C ./feeds/packages/net/
