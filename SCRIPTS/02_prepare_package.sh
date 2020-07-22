@@ -12,6 +12,9 @@ sed -i 's,snapshots,,g' package/base-files/image-config.in
 sed -i 's/Os/O3/g' include/target.mk
 sed -i 's/O2/O3/g' ./rules.mk
 
+#更新feed
+./scripts/feeds update -a && ./scripts/feeds install -a
+
 # use master branch version miniupnpd
 rm -rf ./feeds/packages/net/miniupnpd
 svn co https://github.com/openwrt/packages/trunk/net/miniupnpd feeds/packages/net/miniupnpd
@@ -19,8 +22,8 @@ svn co https://github.com/openwrt/packages/trunk/libs/libcap-ng feeds/packages/l
 cp ../PATCH/400-ipv6-disable.patch feeds/packages/net/miniupnpd/patches/
 # tar zxf ../miniupnpd.tar.gz -C ./feeds/packages/net/
 
-#更新feed
 ./scripts/feeds update -a && ./scripts/feeds install -a
+
 #irqbalance
 sed -i 's/0/1/g' feeds/packages/utils/irqbalance/files/irqbalance.config
 
