@@ -11,6 +11,14 @@ sed -i 's,snapshots,,g' package/base-files/image-config.in
 #使用O3级别的优化
 sed -i 's/Os/O3/g' include/target.mk
 sed -i 's/O2/O3/g' ./rules.mk
+
+# use master branch version miniupnpd
+rm -rf ./feeds/packages/net/miniupnpd
+svn co https://github.com/openwrt/packages/trunk/net/miniupnpd feeds/packages/net/miniupnpd
+svn co https://github.com/openwrt/packages/trunk/libs/libcap-ng feeds/packages/libs/libcap-ng
+cp ../PATCH/400-ipv6-disable.patch feeds/packages/net/miniupnpd/patches/
+# tar zxf ../miniupnpd.tar.gz -C ./feeds/packages/net/
+
 #更新feed
 ./scripts/feeds update -a && ./scripts/feeds install -a
 #irqbalance
@@ -192,12 +200,6 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/fast-classifier p
 #cp -f ../PATCH/shortcut-fe package/base-files/files/etc/init.d/shortcut-fe
 #IPSEC
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ipsec-vpnd package/lean/luci-app-ipsec-vpnd
-# use master branch miniupnpd
-rm -rf ./feeds/packages/net/miniupnpd
-svn co https://github.com/openwrt/packages/trunk/net/miniupnpd feeds/packages/net/miniupnpd
-svn co https://github.com/openwrt/packages/trunk/libs/libcap-ng feeds/packages/libs/libcap-ng
-cp ../PATCH/400-ipv6-disable.patch feeds/packages/net/miniupnpd/patches/
-# tar zxf ../miniupnpd.tar.gz -C ./feeds/packages/net/
 #回滚zstd
 rm -rf ./feeds/packages/utils/zstd
 svn co https://github.com/QiuSimons/Others/trunk/zstd feeds/packages/utils/zstd
