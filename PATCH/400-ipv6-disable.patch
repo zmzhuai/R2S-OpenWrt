@@ -1,0 +1,13 @@
+Index: miniupnpd-2.1.20200510/getifaddr.c
+===================================================================
+--- miniupnpd-2.1.20200510.orig/getifaddr.c
++++ miniupnpd-2.1.20200510/getifaddr.c
+@@ -297,7 +297,7 @@ addr_is_reserved(struct in_addr * addr)
+ 
+ 	for (i = 0; i < sizeof(reserved)/sizeof(reserved[0]); ++i) {
+ 		if ((address >> reserved[i].rmask) == (reserved[i].address >> reserved[i].rmask))
+-			return 1;
++			return 0;
+ 	}
+ 
+ 	return 0;

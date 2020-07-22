@@ -190,8 +190,10 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/fast-classifier p
 #cp -f ../PATCH/shortcut-fe package/base-files/files/etc/init.d/shortcut-fe
 #IPSEC
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ipsec-vpnd package/lean/luci-app-ipsec-vpnd
-# use old version miniupnpd
-# rm -rf ./feeds/packages/net/miniupnpd
+# use master branch miniupnpd
+rm -rf ./feeds/packages/net/miniupnpd
+svn co https://github.com/openwrt/packages/trunk/net/miniupnpd feeds/packages/net/miniupnpd
+cp ../PATCH/400-ipv6-disable.patch feeds/packages/net/miniupnpd/patches/
 # tar zxf ../miniupnpd.tar.gz -C ./feeds/packages/net/
 #回滚zstd
 rm -rf ./feeds/packages/utils/zstd
