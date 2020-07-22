@@ -84,6 +84,9 @@ svn co https://github.com/nxhack/openwrt-node-packages/trunk/node-serialport-bin
 #更换GCC版本
 rm -rf ./feeds/packages/devel/gcc
 svn co https://github.com/openwrt/packages/trunk/devel/gcc feeds/packages/devel/gcc
+#更换Golang版本
+rm -rf ./feeds/packages/lang/golang
+svn co https://github.com/openwrt/packages/trunk/lang/golang feeds/packages/lang/golang
 #beardropper
 git clone https://github.com/NateLol/luci-app-beardropper package/luci-app-beardropper
 sed -i 's/"luci.fs"/"luci.sys".net/g' package/luci-app-beardropper/luasrc/model/cbi/beardropper/setting.lua
@@ -103,6 +106,8 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/adbyby package/le
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-accesscontrol package/lean/luci-app-accesscontrol
 #AutoCore
 svn co https://github.com/project-openwrt/openwrt/branches/master/package/lean/autocore package/lean/autocore
+sed -i 's,*/,,g' package/lean/autocore/files/arm/rpcd_10_system.js
+sed -i 's,/*,,g' package/lean/autocore/files/arm/rpcd_10_system.js
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/coremark package/lean/coremark
 sed -i 's,-DMULTIT,-Ofast -DMULTIT,g' package/lean/coremark/Makefile
 #迅雷快鸟
