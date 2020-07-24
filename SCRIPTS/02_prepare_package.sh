@@ -217,6 +217,9 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ipsec-vp
 #回滚zstd
 rm -rf ./feeds/packages/utils/zstd
 svn co https://github.com/QiuSimons/Others/trunk/zstd feeds/packages/utils/zstd
+#FRP
+git clone -b master --single-branch https://github.com/kuoruan/openwrt-frp package/new/openwrt-frp
+git clone -b master --single-branch https://github.com/kuoruan/luci-app-frpc package/new/luci-app-frpc
 
 ##最后的收尾工作
 #Lets Fuck
