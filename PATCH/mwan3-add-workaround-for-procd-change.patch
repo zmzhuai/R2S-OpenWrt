@@ -1,0 +1,43 @@
+From 058a2b6f3057d849cbe4f2c4fda258d32d6da2fd Mon Sep 17 00:00:00 2001
+From: Florian Eckert <fe@dev.tdt.de>
+Date: Fri, 17 Jul 2020 10:34:32 +0200
+Subject: [PATCH] mwan3: add workaround for procd change
+
+Signed-off-by: Florian Eckert <fe@dev.tdt.de>
+---
+ net/mwan3/files/etc/init.d/mwan3 | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/net/mwan3/files/etc/init.d/mwan3 b/net/mwan3/files/etc/init.d/mwan3
+index af750e55e..e0c65889a 100755
+--- a/net/mwan3/files/etc/init.d/mwan3
++++ b/net/mwan3/files/etc/init.d/mwan3
+@@ -10,17 +10,22 @@ boot() {
+ 	rc_procd start_service
+ }
+ 
++# FIXME
++# fd 1000 is an inherited lock file descriptor for preventing concurrent
++# init script executions. Close it here to prevent the mwan3 daemon from
++# inheriting it further to avoid holding the lock indefinitely.
++
+ reload_service() {
+-	/usr/sbin/mwan3 restart
++	/usr/sbin/mwan3 restart 1000>&-
+ }
+ 
+ start_service() {
+ 	[ -n "${mwan3_boot}" ] && return 0
+-	/usr/sbin/mwan3 start
++	/usr/sbin/mwan3 start 1000>&-
+ }
+ 
+ stop_service() {
+-	/usr/sbin/mwan3 stop
++	/usr/sbin/mwan3 stop 1000>&-
+ }
+ 
+ service_triggers() {
+-- 
+2.27.0
+
