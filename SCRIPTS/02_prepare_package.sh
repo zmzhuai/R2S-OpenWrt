@@ -238,6 +238,9 @@ svn co https://github.com/openwrt/packages/trunk/utils/collectd feeds/packages/u
 git clone -b master --single-branch https://github.com/QiuSimons/openwrt-fullconenat package/fullconenat
 #翻译及部分功能优化
 git clone -b master --single-branch https://github.com/QiuSimons/addition-trans-zh package/lean/lean-translate
+#change miniupnpd default setting, disable ipv6 upnp
+sed -i "s/uci set upnpd.config.enabled='1'/&\\
+uci set upnpd.config.ipv6_disable='1'/g" package/lean/lean-translate/files/zzz-default-settings
 #SFE
 #svn co https://github.com/MeIsReallyBa/Openwrt-sfe-flowoffload-linux-5.4/trunk/shortcut-fe package/new/shortcut-fe
 #svn co https://github.com/project-openwrt/openwrt/branches/18.06-kernel5.4/package/lean/shortcut-fe package/new/shortcut-fe
