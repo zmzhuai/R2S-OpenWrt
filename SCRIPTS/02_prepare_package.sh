@@ -18,20 +18,24 @@ sed -i 's/0/1/g' feeds/packages/utils/irqbalance/files/irqbalance.config
 
 ##必要的patch
 #等待上游修复后使用
-##patch i2c0
-#cp -f ../PATCH/998-rockchip-enable-i2c0-on-NanoPi-R2S.patch ./target/linux/rockchip/patches-5.4/998-rockchip-enable-i2c0-on-NanoPi-R2S.patch
-##patch r8152 led
-#cp -f ../PATCH/991-r8152-Add-module-param-for-customized-LEDs.patch ./target/linux/rockchip/patches-5.4/991-r8152-Add-module-param-for-customized-LEDs.patch
+#patch i2c0
+cp -f ../PATCH/998-rockchip-enable-i2c0-on-NanoPi-R2S.patch ./target/linux/rockchip/patches-5.4/998-rockchip-enable-i2c0-on-NanoPi-R2S.patch
+#patch r8152 led
+cp -f ../PATCH/991-r8152-Add-module-param-for-customized-LEDs.patch ./target/linux/rockchip/patches-5.4/991-r8152-Add-module-param-for-customized-LEDs.patch
+#some rework
+cp -f ../PATCH/rework/005-rockchip-rk3328-add-idle-state.patch ./target/linux/rockchip/patches-5.4/005-rockchip-rk3328-add-idle-state.patch
+cp -f ../PATCH/rework/102-rockchip-add-usb3-controller-driver-for-RK3328-SoCs.patch ./target/linux/rockchip/patches-5.4/102-rockchip-add-usb3-controller-driver-for-RK3328-SoCs.patch
+cp -f ../PATCH/rework/103-rockchip-add-hwmon-support-for-SoCs-and-GPUs.patch ./target/linux/rockchip/patches-5.4/103-rockchip-add-hwmon-support-for-SoCs-and-GPUs.patch
 #patch rk-crypto
 patch -p1 < ../PATCH/kernel_crypto-add-rk3328-crypto-support.patch
+#patch rk3328_config
+patch -p1 < ../PATCH/0001-target-linux-improve-friendlyarm-nanopi-r2s-support.patch
 #patch jsonc
 patch -p1 < ../PATCH/use_json_object_new_int64.patch
 #patch dnsmasq
 patch -p1 < ../PATCH/dnsmasq-add-filter-aaaa-option.patch
 patch -p1 < ../PATCH/luci-add-filter-aaaa-option.patch
 cp -f ../PATCH/900-add-filter-aaaa-option.patch ./package/network/services/dnsmasq/patches/900-add-filter-aaaa-option.patch
-#rm -rf ./package/network/services/dnsmasq/files/dhcp.conf
-#cp -f ../PATCH/dhcp.conf ./package/network/services/dnsmasq/files/dhcp.conf
 #Patch FireWall 以增添fullcone功能 
 mkdir package/network/config/firewall/patches
 wget -P package/network/config/firewall/patches/ https://github.com/LGA1150/fullconenat-fw3-patch/raw/master/fullconenat.patch
