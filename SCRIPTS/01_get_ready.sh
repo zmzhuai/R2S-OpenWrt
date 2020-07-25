@@ -6,4 +6,5 @@ git remote add upstream https://github.com/openwrt/openwrt.git && git fetch upst
 git rebase upstream/master
 sed -i "s/# CONFIG_ROCKCHIP_THERMAL is not set/CONFIG_ROCKCHIP_THERMAL=y/g" target/linux/rockchip/armv8/config-5.4
 cd ..
+git clone -b dev-19.07 --single-branch https://github.com/Lienol/openwrt openwrt-lienol
 exit 0

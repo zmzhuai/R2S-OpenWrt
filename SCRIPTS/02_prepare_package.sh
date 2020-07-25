@@ -119,8 +119,8 @@ git clone -b master --single-branch https://github.com/jerrykuku/luci-theme-argo
 #edge主题
 git clone -b master --single-branch https://github.com/garypang13/luci-theme-edge package/new/luci-theme-edge
 #AdGuard
-svn co https://github.com/Lienol/openwrt/branches/dev-19.07/package/diy/luci-app-adguardhome package/new/luci-app-adguardhome
-svn co https://github.com/Lienol/openwrt/branches/dev-19.07/package/diy/adguardhome package/new/AdGuardHome
+cp -rf ../openwrt-lienol/package/diy/luci-app-adguardhome ./package/new/luci-app-adguardhome
+cp -rf ../openwrt-lienol/package/diy/adguardhome ./package/new/AdGuardHome
 #git clone -b master --single-branch https://github.com/rufengsuixing/luci-app-adguardhome package/new/luci-app-adguardhome
 #svn co https://github.com/project-openwrt/openwrt/branches/openwrt-19.07/package/ntlf9t/AdGuardHome package/new/AdGuardHome
 #ChinaDNS
