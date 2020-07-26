@@ -26,6 +26,7 @@ cp -f ../PATCH/991-r8152-Add-module-param-for-customized-LEDs.patch ./target/lin
 cp -f ../PATCH/rework/005-rockchip-rk3328-add-idle-state.patch ./target/linux/rockchip/patches-5.4/005-rockchip-rk3328-add-idle-state.patch
 cp -f ../PATCH/rework/102-rockchip-add-usb3-controller-driver-for-RK3328-SoCs.patch ./target/linux/rockchip/patches-5.4/102-rockchip-add-usb3-controller-driver-for-RK3328-SoCs.patch
 cp -f ../PATCH/rework/103-rockchip-add-hwmon-support-for-SoCs-and-GPUs.patch ./target/linux/rockchip/patches-5.4/103-rockchip-add-hwmon-support-for-SoCs-and-GPUs.patch
+rm -rf ./target/linux/rockchip/patches-5.4/101-dts-rockchip-add-usb3-controller-node-for-RK3328-SoCs.patch
 #patch rk-crypto
 patch -p1 < ../PATCH/kernel_crypto-add-rk3328-crypto-support.patch
 #patch rk3328_config
