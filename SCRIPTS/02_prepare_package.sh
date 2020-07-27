@@ -226,6 +226,8 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/fast-classifier p
 #cp -f ../PATCH/shortcut-fe package/base-files/files/etc/init.d/shortcut-fe
 #IPSEC
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ipsec-vpnd package/lean/luci-app-ipsec-vpnd
+#Zerotier
+svn co https://github.com/project-openwrt/openwrt/trunk/package/lean/luci-app-zerotier package/lean/luci-app-zerotier
 #回滚zstd
 rm -rf ./feeds/packages/utils/zstd
 svn co https://github.com/QiuSimons/Others/trunk/zstd feeds/packages/utils/zstd
