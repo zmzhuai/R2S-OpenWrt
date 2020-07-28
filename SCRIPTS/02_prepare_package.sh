@@ -348,6 +348,7 @@ cp -f ../PATCH/adjust_network package/base-files/files/etc/init.d/zzz_adjust_net
 #i2c_oled
 #cp -f ../I2C/i2c_ssd package/base-files/files/usr/bin/i2c_ssd
 #cp -f ../I2C/OLED_R2S package/base-files/files/etc/init.d/OLED_R2S
+}
 #modify gateway address
 sed -i 's/192.168.1.1/192.168.88.1/g' package/base-files/files/bin/config_generate
 #删除已有配置
