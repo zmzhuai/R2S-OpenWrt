@@ -20,15 +20,6 @@ sed -i 's/0/1/g' feeds/packages/utils/irqbalance/files/irqbalance.config
 #等待上游修复后使用
 #patch i2c0
 cp -f ../PATCH/998-rockchip-enable-i2c0-on-NanoPi-R2S.patch ./target/linux/rockchip/patches-5.4/998-rockchip-enable-i2c0-on-NanoPi-R2S.patch
-notExce(){
-#patch r8152 led
-cp -f ../PATCH/991-r8152-Add-module-param-for-customized-LEDs.patch ./target/linux/rockchip/patches-5.4/991-r8152-Add-module-param-for-customized-LEDs.patch
-#some rework
-cp -f ../PATCH/rework/005-rockchip-rk3328-add-idle-state.patch ./target/linux/rockchip/patches-5.4/005-rockchip-rk3328-add-idle-state.patch
-cp -f ../PATCH/rework/102-rockchip-add-usb3-controller-driver-for-RK3328-SoCs.patch ./target/linux/rockchip/patches-5.4/102-rockchip-add-usb3-controller-driver-for-RK3328-SoCs.patch
-cp -f ../PATCH/rework/103-rockchip-add-hwmon-support-for-SoCs-and-GPUs.patch ./target/linux/rockchip/patches-5.4/103-rockchip-add-hwmon-support-for-SoCs-and-GPUs.patch
-rm -rf ./target/linux/rockchip/patches-5.4/101-dts-rockchip-add-usb3-controller-node-for-RK3328-SoCs.patch
-}
 #patch rk3328_config
 patch -p1 < ../PATCH/0001-target-linux-improve-friendlyarm-nanopi-r2s-support.patch
 
@@ -316,15 +307,6 @@ cp -f ../PATCH/fuck package/base-files/files/usr/bin/fuck
 cp -f ../PATCH/chinadnslist package/base-files/files/usr/bin/chinadnslist
 #最大连接
 sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
-notExce(){
-#修正架构
-sed -i "s,boardinfo.system,'ARMv8',g" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
-#adjust_network
-cp -f ../PATCH/adjust_network package/base-files/files/etc/init.d/zzz_adjust_network
-#i2c_oled
-cp -f ../I2C/i2c_ssd package/base-files/files/usr/bin/i2c_ssd
-cp -f ../I2C/OLED_R2S package/base-files/files/etc/init.d/OLED_R2S
-}
 #删除已有配置
 rm -rf .config
 #授予权限
