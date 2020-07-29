@@ -20,9 +20,6 @@ sed -i 's/0/1/g' feeds/packages/utils/irqbalance/files/irqbalance.config
 #等待上游修复后使用
 #patch i2c0
 cp -f ../PATCH/998-rockchip-enable-i2c0-on-NanoPi-R2S.patch ./target/linux/rockchip/patches-5.4/998-rockchip-enable-i2c0-on-NanoPi-R2S.patch
-#patch rk3328_config
-patch -p1 < ../PATCH/0001-target-linux-improve-friendlyarm-nanopi-r2s-support.patch
-
 #patch rk-crypto
 patch -p1 < ../PATCH/kernel_crypto-add-rk3328-crypto-support.patch
 #patch jsonc
