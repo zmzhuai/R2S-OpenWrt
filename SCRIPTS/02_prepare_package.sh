@@ -21,11 +21,6 @@ svn co https://github.com/openwrt/packages/trunk/net/miniupnpd feeds/packages/ne
 svn co https://github.com/openwrt/packages/trunk/libs/libcap-ng feeds/packages/libs/libcap-ng
 cp ../PATCH/400-ipv6-disable.patch feeds/packages/net/miniupnpd/patches/
 # tar zxf ../miniupnpd.tar.gz -C ./feeds/packages/net/
-# patch mwan3
-cp ../PATCH/mwan3-add-workaround-for-procd-change.patch feeds/packages/
-pushd feeds/packages
-git apply mwan3-add-workaround-for-procd-change.patch
-popd
 
 ./scripts/feeds update -a && ./scripts/feeds install -a
 
