@@ -91,11 +91,12 @@ git clone https://github.com/NateLol/luci-app-beardropper package/luci-app-beard
 sed -i 's/"luci.fs"/"luci.sys".net/g' package/luci-app-beardropper/luasrc/model/cbi/beardropper/setting.lua
 sed -i '/firewall/d' package/luci-app-beardropper/root/etc/uci-defaults/luci-beardropper
 #luci-app-freq
-#svn co https://github.com/project-openwrt/openwrt/branches/master/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
-#patch -p1 < ../PATCH/luci-app-freq.patch
+svn co https://github.com/project-openwrt/openwrt/branches/master/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
+patch -p1 < ../PATCH/luci-app-freq.patch
 #京东签到
 git clone https://github.com/jerrykuku/node-request package/new/node-request
 git clone https://github.com/jerrykuku/luci-app-jd-dailybonus package/new/luci-app-jd-dailybonus
+wget -O package/new/luci-app-jd-dailybonus/root/usr/share/jd-dailybonus/JD_DailyBonus.js https://github.com/NobyDa/Script/raw/master/JD-DailyBonus/JD_DailyBonus.js
 #arpbind
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-arpbind package/lean/luci-app-arpbind
 #Adbyby
@@ -225,9 +226,11 @@ svn co https://github.com/openwrt/packages/trunk/utils/collectd feeds/packages/u
 git clone -b master --single-branch https://github.com/QiuSimons/openwrt-fullconenat package/fullconenat
 #翻译及部分功能优化
 git clone -b master --single-branch https://github.com/QiuSimons/addition-trans-zh package/lean/lean-translate
+# use custom default settings
+wget -O package/lean/lean-translate/files/zzz-default-settings https://github.com/zmzhuai/R2S-OpenWrt/raw/master/SCRIPTS/zzz-default-settings
 #change miniupnpd default setting, disable ipv6 upnp
-sed -i "s/uci set upnpd.config.enabled='1'/&\\
-uci set upnpd.config.ipv6_disable='1'/g" package/lean/lean-translate/files/zzz-default-settings
+#sed -i "s/uci set upnpd.config.enabled='1'/&\\
+#uci set upnpd.config.ipv6_disable='1'/g" package/lean/lean-translate/files/zzz-default-settings
 #SFE
 #svn co https://github.com/MeIsReallyBa/Openwrt-sfe-flowoffload-linux-5.4/trunk/shortcut-fe package/new/shortcut-fe
 #svn co https://github.com/project-openwrt/openwrt/branches/18.06-kernel5.4/package/lean/shortcut-fe package/new/shortcut-fe
@@ -322,7 +325,7 @@ CONFIG_SG_SPLIT=y
 #Lets Fuck
 mkdir package/base-files/files/usr/bin
 cp -f ../PATCH/fuck package/base-files/files/usr/bin/fuck
-cp -f ../PATCH/chinadnslist package/base-files/files/usr/bin/chinadnslist
+#cp -f ../PATCH/chinadnslist package/base-files/files/usr/bin/chinadnslist
 #最大连接
 sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 #modify gateway address
