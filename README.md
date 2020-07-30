@@ -1,10 +1,10 @@
 ## R2S 基于原生OpenWRT 的固件(AS IS, NO WARRANTY!!!)
 
 ### 下载地址：
-https://github.com/project-openwrt/R2S-OpenWrt/releases
+https://github.com/zmzhuai/R2S-OpenWrt/releases
 
 ### 追新党可以在Action中取每日更新（可能会翻车，风险自担，需要登陆github后才能下载）：
-https://github.com/project-openwrt/R2S-OpenWrt/actions
+https://github.com/zmzhuai/R2S-OpenWrt/actions
 
 ### 本地一键编译命令（注意装好依赖）：
 安装依赖：
@@ -16,7 +16,7 @@ wget -O - https://raw.githubusercontent.com/friendlyarm/build-env-on-ubuntu-bion
 ```
 一键编译（测试编译环境是Ubuntu18.04）：
 ```shell
-git clone https://github.com/project-openwrt/R2S-OpenWrt.git&&cd R2S-OpenWrt&&bash onekeyr2s.sh
+git clone https://github.com/zmzhuai/R2S-OpenWrt.git&&cd R2S-OpenWrt&&bash onekeyr2s.sh
 ```
 ### 注意事项：
 0.OC至1.608GHz（未提升电压，原则上不会增加大量额外发热）
