@@ -68,9 +68,6 @@ echo "59.111.239.62 httpdns.n.netease.com" >> /etc/hosts && cat /etc/hosts | sor
 #dockerman
 #sed -i 's,/opt,/overlay,g' /etc/config/dockerman
 
-#jd dailybounes
-echo "30 0 * * * /usr/bin/wget --no-check-certificate https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js -O /usr/share/jd-dailybonus/JD_DailyBonus.js" >> /etc/crontabs/root && cat /etc/crontabs/root | sort | uniq > /tmp/tmp_cron_root && cat /tmp/tmp_cron_root > /etc/crontabs/root
-
 #dnsmasq
 uci set dhcp.lan.ra='hybrid'
 uci set dhcp.lan.ndp='hybrid'

@@ -226,8 +226,8 @@ cp ../SCRIPTS/zzz-default-settings package/lean/lean-translate/files/zzz-default
 #uci set upnpd.config.ipv6_disable='1'/g" package/lean/lean-translate/files/zzz-default-settings
 
 # use old version miniupnpd(2.0.20170421)
-rm -rf ./feeds/packages/net/miniupnpd
-svn co https://github.com/coolsnowwolf/packages/trunk/net/miniupnpd feeds/packages/net/miniupnpd
+# rm -rf ./feeds/packages/net/miniupnpd
+# svn co https://github.com/coolsnowwolf/packages/trunk/net/miniupnpd feeds/packages/net/miniupnpd
 #svn co https://github.com/openwrt/packages/trunk/libs/libcap-ng feeds/packages/libs/libcap-ng
 #cp ../PATCH/400-ipv6-disable.patch feeds/packages/net/miniupnpd/patches/
 # tar zxf ../miniupnpd.tar.gz -C ./feeds/packages/net/
