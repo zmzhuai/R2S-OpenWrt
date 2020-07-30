@@ -15,15 +15,6 @@ sed -i 's/O2/O3/g' ./rules.mk
 #更新feed
 ./scripts/feeds update -a && ./scripts/feeds install -a
 
-# use master branch version miniupnpd
-rm -rf ./feeds/packages/net/miniupnpd
-svn co https://github.com/openwrt/packages/trunk/net/miniupnpd feeds/packages/net/miniupnpd
-svn co https://github.com/openwrt/packages/trunk/libs/libcap-ng feeds/packages/libs/libcap-ng
-cp ../PATCH/400-ipv6-disable.patch feeds/packages/net/miniupnpd/patches/
-# tar zxf ../miniupnpd.tar.gz -C ./feeds/packages/net/
-
-./scripts/feeds update -a && ./scripts/feeds install -a
-
 #irqbalance
 sed -i 's/0/1/g' feeds/packages/utils/irqbalance/files/irqbalance.config
 
@@ -232,6 +223,13 @@ wget -O package/lean/lean-translate/files/zzz-default-settings https://github.co
 #change miniupnpd default setting, disable ipv6 upnp
 #sed -i "s/uci set upnpd.config.enabled='1'/&\\
 #uci set upnpd.config.ipv6_disable='1'/g" package/lean/lean-translate/files/zzz-default-settings
+
+# use old version miniupnpd(2.0.20170421)
+rm -rf ./feeds/packages/net/miniupnpd
+svn co https://github.com/coolsnowwolf/packages/trunk/net/miniupnpd feeds/packages/net/miniupnpd
+#svn co https://github.com/openwrt/packages/trunk/libs/libcap-ng feeds/packages/libs/libcap-ng
+#cp ../PATCH/400-ipv6-disable.patch feeds/packages/net/miniupnpd/patches/
+# tar zxf ../miniupnpd.tar.gz -C ./feeds/packages/net/
 #SFE
 #svn co https://github.com/MeIsReallyBa/Openwrt-sfe-flowoffload-linux-5.4/trunk/shortcut-fe package/new/shortcut-fe
 #svn co https://github.com/project-openwrt/openwrt/branches/18.06-kernel5.4/package/lean/shortcut-fe package/new/shortcut-fe
@@ -248,9 +246,6 @@ cp -f ../PATCH/move_passwall_2_services.sh ./package/lean/luci-app-zerotier/move
 pushd package/lean/luci-app-zerotier
 bash move_passwall_2_services.sh
 popd
-#回滚zstd
-rm -rf ./feeds/packages/utils/zstd
-svn co https://github.com/QiuSimons/Others/trunk/zstd feeds/packages/utils/zstd
 #frp
 rm -f ./feeds/luci/applications/luci-app-frps
 rm -f ./feeds/luci/applications/luci-app-frpc
