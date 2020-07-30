@@ -110,6 +110,7 @@ svn co https://github.com/openwrt/luci/branches/openwrt-18.06/applications/luci-
 svn co https://github.com/project-openwrt/openwrt/branches/master/package/lean/pandownload-fake-server package/lean/pandownload-fake-server
 #oled
 git clone -b master --single-branch https://github.com/NateLol/luci-app-oled package/new/luci-app-oled
+sed -i '/eth1/a\  set_interface_core 8 "oled" "ff160000.i2c' target/linux/rockchip/armv8/base-files/etc/hotplug.d/net/40-net-smp-affinity
 #网易云解锁
 git clone -b master --single-branch https://github.com/project-openwrt/luci-app-unblockneteasemusic package/new/UnblockNeteaseMusic
 #定时重启
