@@ -219,7 +219,8 @@ git clone -b master --single-branch https://github.com/QiuSimons/openwrt-fullcon
 #翻译及部分功能优化
 git clone -b master --single-branch https://github.com/QiuSimons/addition-trans-zh package/lean/lean-translate
 # use custom default settings
-wget -O package/lean/lean-translate/files/zzz-default-settings https://github.com/zmzhuai/R2S-OpenWrt/raw/master/SCRIPTS/zzz-default-settings
+cp ../SCRIPTS/zzz-default-settings package/lean/lean-translate/files/zzz-default-settings
+# wget -O package/lean/lean-translate/files/zzz-default-settings https://github.com/zmzhuai/R2S-OpenWrt/raw/master/SCRIPTS/zzz-default-settings
 #change miniupnpd default setting, disable ipv6 upnp
 #sed -i "s/uci set upnpd.config.enabled='1'/&\\
 #uci set upnpd.config.ipv6_disable='1'/g" package/lean/lean-translate/files/zzz-default-settings
