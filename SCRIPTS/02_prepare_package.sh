@@ -5,6 +5,7 @@ clear
 rm -f ./feeds.conf.default
 wget https://raw.githubusercontent.com/openwrt/openwrt/openwrt-19.07/feeds.conf.default
 wget -P include/ https://raw.githubusercontent.com/openwrt/openwrt/openwrt-19.07/include/scons.mk
+patch -p1 < ../PATCH/0001-tools-add-upx-ucl-support.patch
 #remove annoying snapshot tag
 sed -i 's,SNAPSHOT,,g' include/version.mk
 sed -i 's,snapshots,,g' package/base-files/image-config.in
@@ -113,6 +114,8 @@ svn co https://github.com/openwrt/luci/branches/openwrt-18.06/applications/luci-
 svn co https://github.com/project-openwrt/openwrt/branches/master/package/lean/pandownload-fake-server package/lean/pandownload-fake-server
 #oled
 git clone -b master --single-branch https://github.com/NateLol/luci-app-oled package/new/luci-app-oled
+sed -i '/eth1/atabspaceset_interface_core 8 "oled" "ff150000.i2c"' target/linux/rockchip/armv8/base-files/etc/hotplug.d/net/40-net-smp-affinity
+sed -i 's/tabspace/\t/g' target/linux/rockchip/armv8/base-files/etc/hotplug.d/net/40-net-smp-affinity
 #网易云解锁
 git clone -b master --single-branch https://github.com/project-openwrt/luci-app-unblockneteasemusic package/new/UnblockNeteaseMusic
 #定时重启
