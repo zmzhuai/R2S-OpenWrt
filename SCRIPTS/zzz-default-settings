@@ -13,9 +13,9 @@ sed -i 's/local ucic = uci.cursor()/local ucic = luci.model.uci.cursor()/g' /usr
 sed -i "s/'cbid.shadowsocksr.'/'widget.cbid.shadowsocksr.'/g" /usr/lib/lua/luci/view/shadowsocksr/ssrurl.htm
 
 #irq
-#uci set irqbalance.irqbalance.enabled=1
-#uci commit irqbalance
-#/etc/init.d/irqbalance restart
+uci set irqbalance.irqbalance.enabled=1
+uci commit irqbalance
+/etc/init.d/irqbalance restart
 
 #feed
 sed -i '/openwrt_luci/ { s/snapshots\/packages/releases\/packages-19.07/g; }' /etc/opkg/distfeeds.conf
@@ -44,7 +44,7 @@ uci commit firewall
 #upnp
 uci set upnpd.config.igdv1='1'
 uci set upnpd.config.enabled='1'
-#uci set upnpd.config.ipv6_disable='1'
+uci set upnpd.config.ipv6_disable='1'
 uci del upnpd.config.enable_upnp
 uci del upnpd.config.enable_natpmp
 uci set upnpd.config.external_iface='wan'
