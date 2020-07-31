@@ -33,9 +33,9 @@ git clone https://github.com/project-openwrt/R2S-OpenWrt.git&&cd R2S-OpenWrt&&ba
 
 6.刷写或升级后遇到任何问题，可以尝试ssh进路由器，输入fuck，回车后等待重启，或可解决
 
-7.从2020.7.21开始不再交换 LAN WAN，用户注意！！！！！
+7.从2020.8.1开始重新交换 LAN WAN，解决千兆环境下IDM下载掉速的问题，用户注意！！！！！（当前靠外的是LAN，靠中心的是WAN）
 
-8.LAN灯不亮是openwrt上游的问题，请耐心等待上游修复，sys灯引导时闪烁，启动后常亮，也是上游的设定，有疑问请联系OP官方社区
+8.sys灯引导时闪烁，启动后常亮，是上游的设定，有疑问请联系OP官方社区
 
 ### 版本信息：
 其他模块版本：SNAPSHOT（当日最新）
